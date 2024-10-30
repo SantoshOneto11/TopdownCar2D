@@ -4,24 +4,6 @@ namespace DirtVally
 {
     public class CarController : MonoBehaviour
     {
-        //[SerializeField]
-        //private float accelerationFactor = 30f;
-
-        //[SerializeField]
-        //private float turnFactor = 5f;
-
-        //private float accelerationInput = 0.0f;
-        //private float steeringInput = 0.0f;
-
-        //private float rotationAngle = 0.0f;
-
-        //Rigidbody2D rigidbody2d;
-
-        //private void Awake()
-        //{
-        //    rigidbody2d = GetComponent<Rigidbody2D>();
-        //}
-
         public float acceleration;
         public float steering;
         private Rigidbody2D rb;
