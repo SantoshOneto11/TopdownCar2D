@@ -14,11 +14,13 @@ namespace ShootBottle
         int currentIndex = 0;
 
         public UnityEvent OnReachingWaypoint;
+       
         private void Awake()
         {
             path ??= FindObjectOfType<Path>();
             gameManager ??= FindObjectOfType<GameManager>();
         }
+
         private void Start()
         {
             OnReachingWaypoint.AddListener(ChangeDirection);

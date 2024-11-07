@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51b8538817b6fc449d13109ff58206b, type: 3}
+  m_Name: Wave Config
+  m_EditorClassIdentifier: 
+  bottlePrefab: {fileID: 886939354602798867, guid: 02e2b478e5bdeff489c9949c15acd82a, type: 3}
+  bottleVarience: 3
+  bottleCounrVarience: 3

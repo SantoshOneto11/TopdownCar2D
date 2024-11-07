@@ -8,7 +8,7 @@ public class EnemyPool : MonoBehaviour
     public GameObject bulletPrefab;
 
 
-    [SerializeField] private List<GameObject> pooledBottles;
+    [SerializeField] public List<GameObject> pooledBottles;
     [SerializeField] private List<GameObject> pooledBullets;
     [SerializeField] private int poolSize = 10;
 
