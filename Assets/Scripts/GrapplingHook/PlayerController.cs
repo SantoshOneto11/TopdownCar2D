@@ -123,6 +123,6 @@ namespace GraplingHook
 
             ropePosition.Clear();
             ropeHingeAnchorSprite.enabled = false;
-        }
+        }        
     }
 }
