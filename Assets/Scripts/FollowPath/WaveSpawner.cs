@@ -32,6 +32,7 @@ public class WaveSpawner : MonoBehaviour
         bottlesCount = waveConfig.GetBottleCount();
         OnTotalBottlesCount.Invoke(bottlesCount);
 
+        float spawnInterval = waveConfig.RandomInterval();
         for (int i = 0; i < bottlesCount; i++)
         {
             GameObject bottle = poolManager.GetPooledBottles(obj);
@@ -39,7 +40,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 bottle.SetActive(true);
             }
-            yield return new WaitForSeconds(waveConfig.RandomInterval());
+            yield return new WaitForSeconds(spawnInterval);
         }
     }
 }

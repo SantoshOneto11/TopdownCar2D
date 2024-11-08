@@ -722,12 +722,84 @@ Transform:
   m_GameObject: {fileID: 819674338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56, y: 0.179, z: 0}
+  m_LocalPosition: {x: -0.56, y: 0.196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1236681440}
   m_Father: {fileID: 2129385828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1236681439
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 819674339}
+    m_Modifications:
+    - target: {fileID: 5643142988088757924, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_Name
+      value: Gunshot_Anim
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643142988088757924, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+--- !u!4 &1236681440 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7995322150758693277, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+  m_PrefabInstance: {fileID: 1236681439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1236681441 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1778045487442142250, guid: 4c1be4772c2e7c54f86f9ee7aaf135c3, type: 3}
+  m_PrefabInstance: {fileID: 1236681439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1257434070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottlePrefab: {fileID: 2238693103272112130, guid: 02e2b478e5bdeff489c9949c15acd82a, type: 3}
   bulletPrefab: {fileID: 5211939516626659358, guid: 2bdb153b366fbfc48bec0a56661f9fef, type: 3}
+  spawnLocation: {fileID: 1368982567}
   pooledBottles: []
   pooledBullets: []
   poolSize: 10
@@ -1164,9 +1237,6 @@ MonoBehaviour:
   poolManager: {fileID: 1665641107}
   gun: {fileID: 2129385830}
   waveSpawner: {fileID: 142502307}
-  objectsInWave: 5
-  varience: 3
-  totalWave: 5
   spawnInterval: 1
   OnBottleHit:
     m_PersistentCalls:
@@ -1393,6 +1463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5211939516626659358, guid: 2bdb153b366fbfc48bec0a56661f9fef, type: 3}
   bulletSpawnPoint: {fileID: 819674338}
+  fireAnim: {fileID: 1236681441}
   reloadTime: 1
   shootInterval: 0.2
   rotationSpeed: 6

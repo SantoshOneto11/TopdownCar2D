@@ -6,10 +6,11 @@ public class EnemyPool : MonoBehaviour
 {
     public GameObject bottlePrefab;
     public GameObject bulletPrefab;
-
+    public Transform spawnLocation;
 
     [SerializeField] public List<GameObject> pooledBottles;
     [SerializeField] private List<GameObject> pooledBullets;
+
     [SerializeField] private int poolSize = 10;
 
     private void Start()
@@ -38,6 +39,7 @@ public class EnemyPool : MonoBehaviour
             if (!pooledObject.activeInHierarchy)
             {
                 pooledObject.SetActive(true);
+                pooledObject.transform.position = spawnLocation.position;
                 return pooledObject;
             }
         }

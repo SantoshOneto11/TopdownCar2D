@@ -11,9 +11,6 @@ namespace ShootBottle
         [SerializeField] private BaseGun gun;
         [SerializeField] private WaveSpawner waveSpawner;
 
-        [SerializeField] private int objectsInWave = 5;
-        [SerializeField] private int varience = 3;
-        [SerializeField] private int totalWave = 5;
         [SerializeField] private float spawnInterval = 2f;
 
         private int remainingBottles;
@@ -49,8 +46,14 @@ namespace ShootBottle
             Debug.Log("Bottle Hit " + remainingBottles);
             if (remainingBottles <= 0)
             {
-                StartCoroutine(waveSpawner.SpawnWave(bottle.gameObject));
+                StartCoroutine(WaitBeforeWave());
             }
+        }
+
+        IEnumerator WaitBeforeWave()
+        {
+            yield return new WaitForSeconds(spawnInterval);
+            StartCoroutine(waveSpawner.SpawnWave(bottle.gameObject));
         }
 
         public void GetNewBottlesCount(int count)

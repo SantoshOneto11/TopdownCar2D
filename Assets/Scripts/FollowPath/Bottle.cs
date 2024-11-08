@@ -70,5 +70,11 @@ namespace ShootBottle
                 }
             }
         }
+
+        private void OnDisable()
+        {
+            currentIndex = 0;
+            newAngle = 0f;
+        }
     }
 }
