@@ -20,5 +20,11 @@ namespace ShootBottle
                 gameManager.SendPoolData(gameObject);
             }
         }
+
+        public void InstantiateVfx(ParticleSystem vfx, Transform transform)
+        {
+            ParticleSystem particle = Instantiate(vfx, transform.position, Quaternion.identity);
+            particle.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, 0f, 90f));
+        }
     }
 }

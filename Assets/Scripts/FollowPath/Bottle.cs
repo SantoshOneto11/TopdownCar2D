@@ -8,13 +8,14 @@ namespace ShootBottle
     {
         [SerializeField] Path path;
         [SerializeField] GameManager gameManager;
+        [SerializeField] ParticleSystem shootVfx;
 
         float moveSpeed = 2f;
         float newAngle = 0;
         int currentIndex = 0;
 
         public UnityEvent OnReachingWaypoint;
-       
+
         private void Awake()
         {
             path ??= FindObjectOfType<Path>();
@@ -60,6 +61,13 @@ namespace ShootBottle
             if (collision != null && collision.gameObject.tag == "Bullet")
             {
                 gameManager.SendPoolData(gameObject);
+                gameManager.OnBottleHit.Invoke();
+
+                Bullet bulletObj = collision.GetComponent<Bullet>();
+                if (bulletObj != null)
+                {
+                    bulletObj.InstantiateVfx(shootVfx, transform);
+                }
             }
         }
     }

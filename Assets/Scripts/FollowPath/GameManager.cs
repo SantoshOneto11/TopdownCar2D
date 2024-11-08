@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
 namespace ShootBottle
 {
     public class GameManager : MonoBehaviour
@@ -15,8 +16,15 @@ namespace ShootBottle
         [SerializeField] private int totalWave = 5;
         [SerializeField] private float spawnInterval = 2f;
 
-        private float remainingBottles;
+        private int remainingBottles;
 
+
+        public UnityEvent OnBottleHit;
+
+        private void Awake()
+        {
+            OnBottleHit.AddListener(CheckToSpawnNewWave);
+        }
         private void Start()
         {
             StartCoroutine(waveSpawner.SpawnWave(bottle.gameObject));
@@ -33,6 +41,24 @@ namespace ShootBottle
         public void SendPoolData(GameObject obj)
         {
             poolManager.ReturnToPool(obj);
+        }
+
+        void CheckToSpawnNewWave()
+        {
+            remainingBottles--;
+            Debug.Log("Bottle Hit " + remainingBottles);
+            if (remainingBottles <= 0)
+            {
+                StartCoroutine(waveSpawner.SpawnWave(bottle.gameObject));
+            }
+        }
+
+        public void GetNewBottlesCount(int count)
+        {
+            remainingBottles = count;
+            Debug.Log("Spawned Bottles" + remainingBottles);
+
+            //CheckToSpawnNewWave();
         }
     }
 }

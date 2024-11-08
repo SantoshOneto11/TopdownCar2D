@@ -302,6 +302,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveConfig: {fileID: 11400000, guid: a1fa0f870e376454196fac4e3cd09d8a, type: 2}
   poolManager: {fileID: 1665641107}
+  gameManager: {fileID: 1922074847}
+  OnTotalBottlesCount:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &308294247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,6 +1168,9 @@ MonoBehaviour:
   varience: 3
   totalWave: 5
   spawnInterval: 1
+  OnBottleHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2128709476
 GameObject:
   m_ObjectHideFlags: 0

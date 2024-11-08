@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 0}
+  gameManager: {fileID: 0}
+  shootVfx: {fileID: 1165134489260783885, guid: 28efb2e0f4ade824084a489f74fb8208, type: 3}
   OnReachingWaypoint:
     m_PersistentCalls:
       m_Calls: []

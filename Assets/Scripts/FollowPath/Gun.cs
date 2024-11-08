@@ -1,6 +1,5 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace ShootBottle
 {
@@ -17,15 +16,13 @@ namespace ShootBottle
         protected Rigidbody2D rb;
         protected void RotateGun()
         {
-            transform.Rotate(new Vector3(0f, 0f, -rotationSpeed) );
+            transform.Rotate(new Vector3(0f, 0f, -rotationSpeed));
         }
 
         //Get pooled Bullet 
         //Add Force to Bullet
         public void Shoot(GameObject bullet)
         {
-            //bullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, 0f, 90f)));
-
             bullet.transform.position = bulletSpawnPoint.transform.position;
             bullet.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, 0f, 90f));
 

@@ -7,17 +7,19 @@ using ShootBottle;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private WaveConfig waveConfig;
     [SerializeField] private EnemyPool poolManager;
+    [SerializeField] private GameManager gameManager;
 
     private int bottlesCount;
-
+    public UnityEvent<int> OnTotalBottlesCount;
     private void Start()
     {
-        //waveConfig.AddWaveObjects(5);
+        OnTotalBottlesCount.AddListener(gameManager.GetNewBottlesCount);
     }
 
     private void Update()
@@ -28,7 +30,7 @@ public class WaveSpawner : MonoBehaviour
     public IEnumerator SpawnWave(GameObject obj)
     {
         bottlesCount = waveConfig.GetBottleCount();
-        Debug.Log("Spawned Bottles " + bottlesCount + " " + waveConfig.RandomInterval());
+        OnTotalBottlesCount.Invoke(bottlesCount);
 
         for (int i = 0; i < bottlesCount; i++)
         {
