@@ -61,7 +61,7 @@ namespace ShootBottle
             if (collision != null && collision.gameObject.tag == "Bullet")
             {
                 gameManager.SendPoolData(gameObject);
-                gameManager.OnBottleHit.Invoke();
+                gameManager.OnBottleHitEvent.Invoke();
 
                 Bullet bulletObj = collision.GetComponent<Bullet>();
                 if (bulletObj != null)

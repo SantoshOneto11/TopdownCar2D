@@ -10,17 +10,20 @@ namespace ShootBottle
         [SerializeField] private EnemyPool poolManager;
         [SerializeField] private BaseGun gun;
         [SerializeField] private WaveSpawner waveSpawner;
+        [SerializeField] private Magzine magzine;
 
         [SerializeField] private float spawnInterval = 2f;
 
         private int remainingBottles;
 
 
-        public UnityEvent OnBottleHit;
+        public UnityEvent OnBottleHitEvent;
+        public UnityEvent<int> OnShotFiredEvent;
 
         private void Awake()
         {
-            OnBottleHit.AddListener(CheckToSpawnNewWave);
+            OnBottleHitEvent.AddListener(CheckToSpawnNewWave);
+            OnShotFiredEvent.AddListener(magzine.ShotFired);
         }
         private void Start()
         {
@@ -29,9 +32,17 @@ namespace ShootBottle
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && magzine.ActiveShells >= 0)
             {
+                Debug.Log("Shot Fired!");
+                OnShotFiredEvent.Invoke(1);
                 gun.Shoot(poolManager.GetPooledBullets());
+            }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log("RightClick");
+                //magzine.ReloadShells();
             }
         }
 

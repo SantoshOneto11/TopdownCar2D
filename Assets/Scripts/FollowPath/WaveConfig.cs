@@ -14,11 +14,11 @@ namespace ShootBottle
 
         int bottleVarience = 1;
         int totalBottlesInWave = 3;
-        float spawnInterval = .2f;
+        float spawnInterval = .3f;
 
         public float RandomInterval()
         {
-            float spawnTime = spawnInterval + (Random.Range(0, spawnInterval));
+            float spawnTime = spawnInterval + (Random.Range(0.1f, spawnInterval));
             Debug.Log("SpawnTime - " + spawnTime);
             return spawnTime;
         }
@@ -29,7 +29,7 @@ namespace ShootBottle
             //bottleVarience++;
 
             //return totalBottlesInWave + (Random.Range(0, bottleVarience));
-            return 2;
+            return 20;
         }
 
     }

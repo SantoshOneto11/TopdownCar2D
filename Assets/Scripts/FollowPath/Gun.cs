@@ -68,7 +68,5 @@ namespace ShootBottle
         {
             RotateGun();
         }
-
-
     }
 }
