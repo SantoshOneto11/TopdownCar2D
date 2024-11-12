@@ -20,7 +20,7 @@ namespace ShootBottle
 
         private int totalShells = 8;
 
-        public int ActiveShells { get { return totalShells - usedShells - 1; } }
+        public int ActiveShells { get { return totalShells - usedShells; } }
 
         private int usedShells = 0;
 
@@ -43,16 +43,14 @@ namespace ShootBottle
         public void ShotFired(int count)
         {
 
-            usedShells += count;
 
-            if (usedShells > totalShells)
+            if (usedShells + count > totalShells)
             {
                 Debug.Log("No Bullets!!");
-                ReloadShells();
                 return;
             }
 
-            Debug.Log("Bullets " + usedShells);
+            usedShells += count;
 
             for (int i = 0; i < usedShells; i++)
             {
@@ -66,9 +64,9 @@ namespace ShootBottle
         {
             usedShells = 0;
 
-            for (int i = 0; i < shellHolder.Count; i++)
+            for (int i = 0; i < totalShells; i++)
             {
-                shellHolder[i].color = Color.gray;
+                shellHolder[i].color = Color.white;
             }
         }
     }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Wave Config
   m_EditorClassIdentifier: 
   bottlePrefab: {fileID: 886939354602798867, guid: 02e2b478e5bdeff489c9949c15acd82a, type: 3}
-  bottleCounrVarience: 2
+  spawnInterval: 0.3

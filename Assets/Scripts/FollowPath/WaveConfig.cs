@@ -14,7 +14,8 @@ namespace ShootBottle
 
         int bottleVarience = 1;
         int totalBottlesInWave = 3;
-        float spawnInterval = .3f;
+        [Range(.3f, 1f)]
+        [SerializeField] public float spawnInterval = .5f;
 
         public float RandomInterval()
         {
@@ -29,7 +30,7 @@ namespace ShootBottle
             //bottleVarience++;
 
             //return totalBottlesInWave + (Random.Range(0, bottleVarience));
-            return 20;
+            return 10;
         }
 
     }

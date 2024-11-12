@@ -32,18 +32,19 @@ namespace ShootBottle
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && magzine.ActiveShells >= 0)
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Debug.Log("Reloading Magazine");
+                magzine.ReloadShells();
+            }
+
+            if (Input.GetMouseButtonDown(0) && magzine.ActiveShells != 0)
             {
                 Debug.Log("Shot Fired!");
                 OnShotFiredEvent.Invoke(1);
                 gun.Shoot(poolManager.GetPooledBullets());
             }
 
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Debug.Log("RightClick");
-                //magzine.ReloadShells();
-            }
         }
 
         public void SendPoolData(GameObject obj)
