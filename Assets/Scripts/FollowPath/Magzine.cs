@@ -56,7 +56,6 @@ namespace ShootBottle
             {
                 shellHolder[i].color = Color.gray;
             }
-
         }
 
         //Reload Shells to Default.

@@ -13,12 +13,12 @@ namespace ShootBottle
         [SerializeField] private Magzine magzine;
 
         [SerializeField] private float spawnInterval = 2f;
-
+        
         private int remainingBottles;
+        public int currentLevel;
 
-
-        public UnityEvent OnBottleHitEvent;
-        public UnityEvent<int> OnShotFiredEvent;
+        [SerializeField] public UnityEvent OnBottleHitEvent;
+        [SerializeField] public UnityEvent<int> OnShotFiredEvent;
 
         private void Awake()
         {

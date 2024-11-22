@@ -24,14 +24,22 @@ namespace ShootBottle
             return spawnTime;
         }
 
-        public int GetBottleCount()
+        int ManageSpawnedCount()
         {
-            //int temp = 
-            //bottleVarience++;
+            bottleVarience++;
+            int temp = totalBottlesInWave + Random.Range(0, bottleVarience);
 
-            //return totalBottlesInWave + (Random.Range(0, bottleVarience));
-            return 10;
+            if (temp > 12)
+            {
+                bottleVarience = 1;
+                ManageSpawnedCount();
+            }
+            return temp;
         }
 
+        public int GetBottleCount()
+        {
+            return ManageSpawnedCount();
+        }
     }
 }
